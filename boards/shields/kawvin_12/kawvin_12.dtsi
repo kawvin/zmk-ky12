@@ -8,6 +8,37 @@
 #include <physical_layouts.dtsi>
 
 / {
+    // 👇 必须加：定义按键扫描矩阵（4行3列，适配你的ky12键盘）
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+
+        // 行引脚（根据你的键盘实际接线修改）
+        row-gpios = <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>,
+                    <&gpio0 20 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>,
+                    <&gpio0 15 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>,
+                    <&gpio0 11 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+
+        // 列引脚（根据你的键盘实际接线修改）
+        col-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 8 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 5 GPIO_ACTIVE_HIGH>;
+    };
+
+    // 👇 必须加：矩阵转换
+    matrix_transform0: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <3>;
+        rows = <4>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2)
+            RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
+            RC(3,0) RC(3,1) RC(3,2)
+        >;
+    };
+
+    // 你的物理布局
     ky12_layout: ky12_layout {
         compatible = "zmk,physical-layout";
         display-name = "ky12";
@@ -30,42 +61,14 @@
             , <&key_physical_attrs 100 100  200  300       0     0     0>
             ;
     };
-};
-
-/ {
 
     chosen {
-        // zmk,matrix-transform = &default_transform;
         physical-layouts = &ky12_layout;
     };
-
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <3>;
-        rows = <4>;
-        //	|HOME|UP   |PG_UP|
-        //	|LEFT|SPACE|RIGHT|
-        //	|END |DOWN |PG_DN|
-        //	|TAB |BSPC |ENTER|
-
-        map = <
-            RC(0,0) RC(0,1) RC(0,2) 
-            RC(1,0) RC(1,1) RC(1,2) 
-            RC(2,0) RC(2,1) RC(2,2) 
-            RC(3,0) RC(3,1) RC(3,2)              
-        >;
-    };
-
 };
 
-&ky12_layout{
-	transform = <&default_transform>;
-	kscan = <&kscan0>;
-};
-
-
-
-zephyr_udc0: &usbd { 
-    compatible = "nordic,nrf-usbd"; 
-    status = "okay"; 
+// USB 配置
+&usbd {
+    compatible = "nordic,nrf-usbd";
+    status = "okay";
 };

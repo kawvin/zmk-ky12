@@ -1,13 +1,14 @@
 manifest:
   remotes:
-    - name: zmkfirmware
+    # - name: zmkfirmware
       # url-base: https://github.com/zmkfirmware
+    - name: petejohanson
       url-base: https://github.com/petejohanson  # 添加鼠标的修订
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: petejohanson
       # revision: main
       # revision: v0.3
       # revision: feat/pointers-move-scroll  # 添加鼠标的修订
