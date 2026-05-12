@@ -1,0 +1,44 @@
+layout: {zmk_keyboard: kawvin_12}
+layers:
+  Qwerty:
+  - HOME
+  - UP
+  - PG UP
+  - LEFT
+  - SPACE
+  - RIGHT
+  - END
+  - DOWN
+  - PG DN
+  - TAB
+  - {t: BSPC, h: Mouse}
+  - {t: ENTER, h: Number}
+  Number:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - ESC
+  - '0'
+  - {t: '&KP_DOT', type: held}
+  Mouse:
+  - '&mkp LCLK'
+  - '&mmv MOVE_UP'
+  - '&mkp RCLK'
+  - '&mmv MOVE_LEFT'
+  - ENTER
+  - '&mmv MOVE_RIGHT'
+  - {t: ▽, type: trans}
+  - '&mmv MOVE_DOWN'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+combos:
+- p: [0, 2]
+  k: ESCAPE
