@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2023 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "kawvin_12.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan;
+    };
+
+    kscan: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+
+        diode-direction = "col2row";
+
+        row-gpios
+            = <&gpio0 22 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
+            , <&gpio0 24 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
+            , <&gpio1  4 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
+            , <&gpio1  6 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
+            ;
+
+        col-gpios
+            = <&gpio0 20 GPIO_ACTIVE_HIGH>
+            , <&gpio0 17 GPIO_ACTIVE_HIGH>
+            , <&gpio0 31 GPIO_ACTIVE_HIGH>
+            ;
+    };
+};
+
+
