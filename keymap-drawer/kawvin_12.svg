@@ -240,7 +240,9 @@ path.combo {
 </g>
 <g transform="translate(140, 196)" class="key held keypos-11">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
-<text x="0" y="0" class="key held tap">&amp;KP_DOT</text>
+<text x="0" y="0" class="key held tap">
+<tspan x="0" dy="-0.6em">KP</tspan><tspan x="0" dy="1.2em">DOT</tspan>
+</text>
 </g>
 <g class="combo combopos-0">
 <path d="M84,28 l-37,0" class="combo"/>
