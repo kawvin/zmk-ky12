@@ -2,11 +2,11 @@ file_format: "1"
 id: kawvin_12
 name: kawvin_12
 type: shield
-url: https://github.com/kawvin/zmk-config
+url: https://github.com/kawvin/zmk-ky12
 requires: [pro_micro]
 # exposes: [i2c_oled]
 features:
   - keys
-  - display
+  # - display
 siblings:
   - kawvin_12
