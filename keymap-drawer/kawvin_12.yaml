@@ -25,7 +25,7 @@ layers:
   - '9'
   - ESC
   - '0'
-  - {t: '&KP_DOT', type: held}
+  - {t: KP DOT, type: held}
   Mouse:
   - '&mkp LCLK'
   - '&mmv MOVE_UP'
