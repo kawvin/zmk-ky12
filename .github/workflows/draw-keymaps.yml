@@ -9,6 +9,7 @@ on:
       #- "keymap_drawer.config.yaml"
       # - 'boards/*/*/*.keymap'
 
+      # ----
 jobs:
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
