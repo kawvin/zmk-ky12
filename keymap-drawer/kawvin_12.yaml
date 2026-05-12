@@ -23,9 +23,9 @@ layers:
   - '7'
   - '8'
   - '9'
-  - ESC
   - '0'
-  - {t: KP DOT, type: held}
+  - KP DOT
+  - {type: held}
   Mouse:
   - '&mkp LCLK'
   - '&mmv MOVE_UP'
@@ -33,12 +33,14 @@ layers:
   - '&mmv MOVE_LEFT'
   - ENTER
   - '&mmv MOVE_RIGHT'
-  - {t: ▽, type: trans}
+  - {t: BT, h: '0'}
   - '&mmv MOVE_DOWN'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - BT CLR
+  - {t: BT, h: '1'}
   - {type: held}
-  - {t: ▽, type: trans}
+  - {t: BT, h: '2'}
 combos:
-- p: [0, 2]
-  k: ESCAPE
+- p: [0, 1]
+  k: ESC
+- p: [1, 2]
+  k: ESC
