@@ -9,7 +9,7 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       # revision: main
-      revision: v0.3
+      # revision: v0.3
       # revision: feat/pointers-move-scroll  # 添加鼠标的修订
       revision: feat/pointers-with-input-processors  # 添加鼠标的修订
       import: app/west.yml
