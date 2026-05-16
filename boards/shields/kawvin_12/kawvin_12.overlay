@@ -3,16 +3,16 @@
  *
  * SPDX-License-Identifier: MIT
 
-
+*/
 
 #include "kawvin_12.dtsi"
 
 / {
     chosen {
-        zmk,kscan = &kscan;
+        zmk,kscan_0 = &kscan_0;
     };
 
-    kscan: kscan {
+    kscan_0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
@@ -32,5 +32,5 @@
             ;
     };
 };
-*/
+
 
