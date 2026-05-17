@@ -40,17 +40,17 @@ layers:
   - {type: held}
   - {t: play, h: toggle}
   play:
-  - {t: Ctl+LEFT ARROW, h: toggle}
+  - {t: Ctl+LEFT, h: C}
   - UP ARROW
-  - Ctl+RIGHT
+  - {t: Ctl+RIGHT, h: PG UP}
   - LEFT ARROW
   - SPACE
   - RIGHT
-  - Sft+LEFT ARROW
+  - {t: Sft+LEFT, h: X}
   - DOWN ARROW
-  - Sft+RIGHT
-  - '1'
-  - ENTER
+  - {t: Sft+RIGHT, h: PG DN}
+  - {t: '1', h: E}
+  - {t: ENTER, h: BACKSPACE}
   - {t: read, h: toggle}
   read:
   - HOME
@@ -85,4 +85,4 @@ combos:
   k: ESC
 - p: [2, 9]
   k: '&bootloader'
-  l: [Mouse, control]
+  l: [control]
