@@ -71,7 +71,23 @@
             bindings = <&bootloader>;
             key-positions = <2 9>;
             timeout-ms = <200>;
-            layers = <2 5>;
+            layers = <5>;
+        };
+    };
+
+    macros {
+        potplay_c5: potplay_c5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp C &kp C &kp C &kp C>;
+            label = "POTPLAY_C5";
+        };
+
+        potplay_x5: potplay_x5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp X &kp X &kp X &kp X &kp X>;
+            label = "POTPLAY_X5";
         };
     };
 
@@ -131,10 +147,10 @@
 
         play_layer {
             bindings = <
-&kt LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)
-&kp LEFT_ARROW      &kp SPACE       &kp RIGHT
-&kp RS(LEFT_ARROW)  &kp DOWN_ARROW  &kp LS(RIGHT)
-&kp NUMBER_1        &kp ENTER       &to 4
+&mt C LC(LEFT)  &kp UP_ARROW         &mt PG_UP LC(RIGHT)
+&kp LEFT_ARROW  &kp SPACE            &kp RIGHT
+&mt X LS(LEFT)  &kp DOWN_ARROW       &mt PG_DN LS(RIGHT)
+&mt E NUMBER_1  &mt BACKSPACE ENTER  &to 4
             >;
         };
 
