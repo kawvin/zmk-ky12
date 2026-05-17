@@ -5,24 +5,25 @@
  */
 
 #include <behaviors/mouse_keys.dtsi>
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 // 鼠标灵敏度（只定义一次！）
+
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1200
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20
 
 // 鼠标快捷宏（必须放在头文件之后！）
+
 #define U_MS_U &mmv MOVE_UP
 #define U_MS_D &mmv MOVE_DOWN
 #define U_MS_L &mmv MOVE_LEFT
 #define U_MS_R &mmv MOVE_RIGHT
 
 / {
-
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -45,13 +46,13 @@
             quick-tap-ms = <180>;
             flavor = "tap-preferred";
         };
-
     };
 
     combos {
         compatible = "zmk,combos";
 
         // 同时按 0 + 1 → ESC
+
         esc_01 {
             bindings = <&kp ESC>;
             key-positions = <0 1>;
@@ -59,12 +60,19 @@
         };
 
         // 同时按 1 + 2 → ESC
+
         esc_02 {
             bindings = <&kp ESC>;
             key-positions = <1 2>;
             timeout-ms = <200>;
         };
 
+        flash {
+            bindings = <&bootloader>;
+            key-positions = <2 9>;
+            timeout-ms = <200>;
+            layers = <2 5>;
+        };
     };
 
     keymap {
@@ -78,10 +86,10 @@
             //  |TAB |&ltq 2 BSPC|&ltq 1 ENTER|
 
             bindings = <
-            &kp HOME  &kp UP       &kp PG_UP     
-            &kp LEFT  &kp SPACE    &kp RIGHT     
-            &kp END   &kp DOWN     &kp PG_DN     
-            &kp TAB   &ltq 2 BSPC  &ltq 1 ENTER  
+&kp HOME  &kp UP       &kp PG_UP
+&kp LEFT  &kp ENTER    &kp RIGHT
+&kp END   &kp DOWN     &kp PG_DN
+&kp TAB   &ltq 2 BSPC  &to 1
             >;
 
             label = "Qwerty";
@@ -95,10 +103,10 @@
             //  |N0|DOT|    |
 
             bindings = <
-            &kp N1  &kp N2      &kp N3  
-            &kp N4  &kp N5      &kp N6  
-            &kp N7  &kp N8      &kp N9  
-            &kp N0  &kp KP_DOT  &trans  
+&kp N1  &kp N2      &kp N3
+&kp N4  &kp N5      &kp N6
+&kp N7  &kp N8      &kp N9
+&kp N0  &kp KP_DOT  &to 2
             >;
 
             label = "Number";
@@ -112,12 +120,40 @@
             //  |BT_SEL 1      |              |BT_SEL 2       |
 
             bindings = <
-            &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        
-            &mmv MOVE_LEFT  &kp ENTER       &mmv MOVE_RIGHT  
-            &bt BT_SEL 0    &mmv MOVE_DOWN  &bt BT_CLR       
-            &bt BT_SEL 1    &trans          &bt BT_SEL 2        
-           >;
+&mkp LCLK       &mmv MOVE_UP    &mkp RCLK
+&mmv MOVE_LEFT  &kp ENTER       &mmv MOVE_RIGHT
+&bt BT_SEL 0    &mmv MOVE_DOWN  &bt BT_CLR
+&bt BT_SEL 1    &trans          &to 3
+            >;
+
             label = "Mouse";
+        };
+
+        play_layer {
+            bindings = <
+&kt LC(LEFT_ARROW)  &kp UP_ARROW    &kp LC(RIGHT)
+&kp LEFT_ARROW      &kp SPACE       &kp RIGHT
+&kp RS(LEFT_ARROW)  &kp DOWN_ARROW  &kp LS(RIGHT)
+&kp NUMBER_1        &kp ENTER       &to 4
+            >;
+        };
+
+        read_layer {
+            bindings = <
+&kp HOME        &kp UP_ARROW    &kp PG_UP
+&kp LEFT_ARROW  &kp SPACE       &kp RIGHT
+&kp END         &kp DOWN_ARROW  &kp PG_DN
+&kp ESC         &kp ENTER       &to 5
+            >;
+        };
+
+        control_layer {
+            bindings = <
+&trans  &trans  &trans
+&trans  &trans  &trans
+&trans  &trans  &trans
+&trans  &trans  &to 0
+            >;
         };
     };
 };
