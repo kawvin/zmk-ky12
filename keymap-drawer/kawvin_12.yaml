@@ -5,14 +5,14 @@ layers:
   - UP
   - PG UP
   - LEFT
-  - SPACE
+  - ENTER
   - RIGHT
   - END
   - DOWN
   - PG DN
   - TAB
   - {t: BSPC, h: Mouse}
-  - {t: ENTER, h: Number}
+  - {t: Number, h: toggle}
   Number:
   - '1'
   - '2'
@@ -25,7 +25,7 @@ layers:
   - '9'
   - '0'
   - KP DOT
-  - {type: held}
+  - {t: Mouse, h: toggle}
   Mouse:
   - '&mkp LCLK'
   - '&mmv MOVE_UP'
@@ -38,9 +38,51 @@ layers:
   - BT CLR
   - {t: BT, h: '1'}
   - {type: held}
-  - {t: BT, h: '2'}
+  - {t: play, h: toggle}
+  play:
+  - {t: Ctl+LEFT ARROW, h: toggle}
+  - UP ARROW
+  - Ctl+RIGHT
+  - LEFT ARROW
+  - SPACE
+  - RIGHT
+  - Sft+LEFT ARROW
+  - DOWN ARROW
+  - Sft+RIGHT
+  - '1'
+  - ENTER
+  - {t: read, h: toggle}
+  read:
+  - HOME
+  - UP ARROW
+  - PG UP
+  - LEFT ARROW
+  - SPACE
+  - RIGHT
+  - END
+  - DOWN ARROW
+  - PG DN
+  - ESC
+  - ENTER
+  - {t: control, h: toggle}
+  control:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: Qwerty, h: toggle}
 combos:
 - p: [0, 1]
   k: ESC
 - p: [1, 2]
   k: ESC
+- p: [2, 9]
+  k: '&bootloader'
+  l: [Mouse, control]
