@@ -67,11 +67,12 @@
             timeout-ms = <200>;
         };
 
+        // 在2、5层同时按 2 + 9 → bootloader
         flash {
             bindings = <&bootloader>;
             key-positions = <2 9>;
             timeout-ms = <200>;
-            layers = <5>;
+            layers = <2 5>;
         };
     };
 
@@ -96,16 +97,16 @@
 
         qwerty_layer {
             //  ---------------------------------------------------------------------------------
-            //  |HOME|UP         |PG_UP       |
-            //  |LEFT|SPACE      |RIGHT       |
-            //  |END |DOWN       |PG_DN       |
-            //  |TAB |&ltq 2 BSPC|&ltq 1 ENTER|
+            //  |HOME|UP         |PG_UP|
+            //  |LEFT|ENTER      |RIGHT|
+            //  |END |DOWN       |PG_DN|
+            //  |TAB |&ltq 2 BSPC|&to 1|
 
             bindings = <
-&kp HOME  &kp UP       &kp PG_UP
-&kp LEFT  &kp ENTER    &kp RIGHT
-&kp END   &kp DOWN     &kp PG_DN
-&kp TAB   &ltq 2 BSPC  &to 1
+                &kp HOME  &kp UP       &kp PG_UP  
+                &kp LEFT  &kp ENTER    &kp RIGHT  
+                &kp END   &kp DOWN     &kp PG_DN  
+                &kp TAB   &ltq 2 BSPC  &to 1      
             >;
 
             label = "Qwerty";
@@ -113,16 +114,16 @@
 
         number_layer {
             //  ---------------------------------------------------------------------------------
-            //  |N1|N2 |N3  |
-            //  |N4|N5 |N6  |
-            //  |N7|N8 |N9  |
-            //  |N0|DOT|    |
+            //  |N1|N2 |N3   |
+            //  |N4|N5 |N6   |
+            //  |N7|N8 |N9   |
+            //  |N0|DOT|&to 2|
 
             bindings = <
-&kp N1  &kp N2      &kp N3
-&kp N4  &kp N5      &kp N6
-&kp N7  &kp N8      &kp N9
-&kp N0  &kp KP_DOT  &to 2
+                &kp N1  &kp N2      &kp N3  
+                &kp N4  &kp N5      &kp N6  
+                &kp N7  &kp N8      &kp N9  
+                &kp N0  &kp KP_DOT  &to 2   
             >;
 
             label = "Number";
@@ -133,43 +134,67 @@
             //  |&mkp LCLK     |&mmv MOVE_UP  |&mkp RCLK      |
             //  |&mmv MOVE_LEFT|ENTER         |&mmv MOVE_RIGHT|
             //  |BT_SEL 0      |&mmv MOVE_DOWN|BT_CLR         |
-            //  |BT_SEL 1      |              |BT_SEL 2       |
+            //  |BT_SEL 1      |              |&to 3          |
 
             bindings = <
-&mkp LCLK       &mmv MOVE_UP    &mkp RCLK
-&mmv MOVE_LEFT  &kp ENTER       &mmv MOVE_RIGHT
-&bt BT_SEL 0    &mmv MOVE_DOWN  &bt BT_CLR
-&bt BT_SEL 1    &trans          &to 3
+                &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        
+                &mmv MOVE_LEFT  &kp ENTER       &mmv MOVE_RIGHT  
+                &bt BT_SEL 0    &mmv MOVE_DOWN  &bt BT_CLR       
+                &bt BT_SEL 1    &trans          &to 3            
             >;
 
             label = "Mouse";
         };
 
         play_layer {
+            //  ---------------------------------------------------------------------------------
+            //  |&mt C LC(LEFT)|UP                 |&mt PG_UP LC(RIGHT)|
+            //  |LEFT          |SPACE              |RIGHT              |
+            //  |&mt X LS(LEFT)|DOWN               |&mt PG_DN LS(RIGHT)|
+            //  |&mt E N1      |&mt BACKSPACE ENTER|&to 4              |
+
             bindings = <
-&mt C LC(LEFT)  &kp UP_ARROW         &mt PG_UP LC(RIGHT)
-&kp LEFT_ARROW  &kp SPACE            &kp RIGHT
-&mt X LS(LEFT)  &kp DOWN_ARROW       &mt PG_DN LS(RIGHT)
-&mt E NUMBER_1  &mt BACKSPACE ENTER  &to 4
+                &mt C LC(LEFT)  &kp UP               &mt PG_UP LC(RIGHT)  
+                &kp LEFT        &kp SPACE            &kp RIGHT            
+                &mt X LS(LEFT)  &kp DOWN             &mt PG_DN LS(RIGHT)  
+                &mt E N1        &mt BACKSPACE ENTER  &to 4                
             >;
+
+            label = "Play";
         };
 
         read_layer {
+            //  ---------------------------------------------------------------------------------
+            //  |HOME|UP   |PG_UP|
+            //  |LEFT|SPACE|RIGHT|
+            //  |END |DOWN |PG_DN|
+            //  |ESC |ENTER|&to 5|
+
             bindings = <
-&kp HOME        &kp UP_ARROW    &kp PG_UP
-&kp LEFT_ARROW  &kp SPACE       &kp RIGHT
-&kp END         &kp DOWN_ARROW  &kp PG_DN
-&kp ESC         &kp ENTER       &to 5
+                &kp HOME  &kp UP     &kp PG_UP  
+                &kp LEFT  &kp SPACE  &kp RIGHT  
+                &kp END   &kp DOWN   &kp PG_DN  
+                &kp ESC   &kp ENTER  &to 5      
             >;
+
+            label = "Read";
         };
 
         control_layer {
+            //  ---------------------------------------------------------------------------------
+            //  |    |    |     |
+            //  |    |    |     |
+            //  |    |    |     |
+            //  |    |    |&to 0|
+
             bindings = <
-&trans  &trans  &trans
-&trans  &trans  &trans
-&trans  &trans  &trans
-&trans  &trans  &to 0
+                &trans  &trans  &trans  
+                &trans  &trans  &trans  
+                &trans  &trans  &trans  
+                &trans  &trans  &to 0   
             >;
+
+            label = "Control";
         };
     };
 };
