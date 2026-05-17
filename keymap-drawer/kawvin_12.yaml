@@ -38,34 +38,34 @@ layers:
   - BT CLR
   - {t: BT, h: '1'}
   - {type: held}
-  - {t: play, h: toggle}
-  play:
+  - {t: Play, h: toggle}
+  Play:
   - {t: Ctl+LEFT, h: C}
-  - UP ARROW
+  - UP
   - {t: Ctl+RIGHT, h: PG UP}
-  - LEFT ARROW
+  - LEFT
   - SPACE
   - RIGHT
   - {t: Sft+LEFT, h: X}
-  - DOWN ARROW
+  - DOWN
   - {t: Sft+RIGHT, h: PG DN}
   - {t: '1', h: E}
   - {t: ENTER, h: BACKSPACE}
-  - {t: read, h: toggle}
-  read:
+  - {t: Read, h: toggle}
+  Read:
   - HOME
-  - UP ARROW
+  - UP
   - PG UP
-  - LEFT ARROW
+  - LEFT
   - SPACE
   - RIGHT
   - END
-  - DOWN ARROW
+  - DOWN
   - PG DN
   - ESC
   - ENTER
-  - {t: control, h: toggle}
-  control:
+  - {t: Control, h: toggle}
+  Control:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -85,4 +85,4 @@ combos:
   k: ESC
 - p: [2, 9]
   k: '&bootloader'
-  l: [control]
+  l: [Mouse, Control]
