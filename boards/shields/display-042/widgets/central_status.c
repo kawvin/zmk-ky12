@@ -40,19 +40,19 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     
     // 层
     zmk_widget_layer_status_init(&layer_status_widget, widget->obj);
-    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 0+32,26);
+    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 0+40,26);
     // lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 30,0);
 
     // 电池电量
     zmk_widget_ky_battery_status_init(&ky_battery_status_widget, widget->obj);
-    lv_obj_align(zmk_widget_ky_battery_status_obj(&ky_battery_status_widget), LV_ALIGN_TOP_LEFT, 41+32, 2);
+    lv_obj_align(zmk_widget_ky_battery_status_obj(&ky_battery_status_widget), LV_ALIGN_TOP_LEFT, 41+40, 2);
 
     //zmk_widget_peripheral_battery_status_init(&peripheral_battery_status_widget, widget->obj);
-    //lv_obj_align(zmk_widget_peripheral_battery_status_obj(&peripheral_battery_status_widget), LV_ALIGN_TOP_LEFT, 41+32, 2);
+    //lv_obj_align(zmk_widget_peripheral_battery_status_obj(&peripheral_battery_status_widget), LV_ALIGN_TOP_LEFT, 41+40, 2);
 
     // 输入输出状态
     zmk_widget_output_status_init(&output_status_widget, widget->obj);
-    lv_obj_align(zmk_widget_output_status_obj(&output_status_widget), LV_ALIGN_TOP_LEFT, 0+32, 2);
+    lv_obj_align(zmk_widget_output_status_obj(&output_status_widget), LV_ALIGN_TOP_LEFT, 0+40, 2);
 
     return 0;
 }
