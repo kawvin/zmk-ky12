@@ -5,11 +5,15 @@
  */
 
 #include <behaviors/mouse_keys.dtsi>
-#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+
+
 
 // 鼠标灵敏度（只定义一次！）
 
@@ -186,13 +190,13 @@
             //  |&mt LC(N1) HOME        |UP   |&mt LC(N9) PG_UP|
             //  |LEFT                   |DOWN |RIGHT           |
             //  |END                    |SPACE|PG_DN           |
-            //  |&mt LC(LS(TAB)) LC(TAB)|LS(W)|&to 0           |
+            //  |&mt LC(LS(TAB)) LC(TAB)|LC(W)|&to 0           |
 
             bindings = <
                 &mt LC(N1) HOME          &kp UP     &mt LC(N9) PG_UP  
                 &kp LEFT                 &kp DOWN   &kp RIGHT         
                 &kp END                  &kp SPACE  &kp PG_DN         
-                &mt LC(LS(TAB)) LC(TAB)  &kp LS(W)  &to 0             
+                &mt LC(LS(TAB)) LC(TAB)  &kp LC(W)  &to 0             
              >;
 
             label = "Chrome";
