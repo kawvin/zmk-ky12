@@ -76,7 +76,7 @@ layers:
   - SPACE
   - PG DN
   - {t: Ctl+TAB, h: Ctl+Sft+TAB}
-  - Sft+W
+  - Ctl+W
   - {t: Qwerty, h: toggle}
 combos:
 - p: [0, 1]
